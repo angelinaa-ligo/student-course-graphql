@@ -8,12 +8,13 @@ const auth = require('./middleware/auth');
 
 const typeDefs = require('./graphql/typeDefs');
 const resolvers = require('./graphql/resolvers');
-
+const seedCourses = require('./config/seedCourses');
 require('./config/express');
 
 async function startServerApp() {
   await connectDB();
-
+  
+await seedCourses();
   const server = new ApolloServer({
     typeDefs,
     resolvers

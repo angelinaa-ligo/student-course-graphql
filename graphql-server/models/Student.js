@@ -9,7 +9,16 @@ const studentSchema = new mongoose.Schema({
   city: String,
   phoneNumber: String,
   email: { type: String, unique: true },
-  program: String,
+  program: {
+  type: String,
+  enum: [
+    "Software Engineering",
+    "Computer Science",
+    "Biology",
+    "Business"
+  ],
+  required: true
+},
   courses: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Course' }]
 });
 
