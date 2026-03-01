@@ -33,6 +33,9 @@ const navigate = useNavigate();
   return (
     <div>
       <h2>My Courses</h2>
+      <button onClick={() => navigate('/dashboard')}>
+  ⬅ Back to Dashboard
+</button>
 
       {data.student.courses.map(course => (
         <div key={course.id}>

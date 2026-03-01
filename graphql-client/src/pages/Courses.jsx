@@ -8,8 +8,11 @@ import {
   ADD_COURSE,
   DROP_COURSE
 } from "../graphql/mutations";
+import "../css/courses.css"
+import { useNavigate } from "react-router-dom";
 
 export default function Courses() {
+  const navigate = useNavigate();
   const student = JSON.parse(localStorage.getItem("student"));
 
   const { loading, error, data, refetch } = useQuery(GET_ALL_COURSES);
@@ -26,7 +29,7 @@ export default function Courses() {
   if (loading) return <p>Loading courses...</p>;
   if (error) return <p>Error loading courses</p>;
 
-  // 🧠 1️⃣ Agrupar cursos por courseCode
+  
   const groupedCourses = Object.values(
     data.courses.reduce((acc, course) => {
       if (!acc[course.courseCode]) {
@@ -58,13 +61,13 @@ export default function Courses() {
       return;
     }
 
-    // 🔎 Verificar se já está em outra section do mesmo curso
+
     const alreadyEnrolledSameCourse = enrolledCourses.find(
       (c) => c.courseCode === courseCode
     );
 
     try {
-      // Se estiver em outra section → drop primeiro
+
       if (alreadyEnrolledSameCourse) {
         await dropCourse({
           variables: {
@@ -74,7 +77,6 @@ export default function Courses() {
         });
       }
 
-      // Depois adiciona nova section
       await addCourse({
         variables: {
           studentId: student.id,
@@ -92,6 +94,9 @@ export default function Courses() {
   return (
     <div>
       <h2>All Courses</h2>
+      <button onClick={() => navigate('/dashboard')}>
+  ⬅ Back to Dashboard
+</button>
 
       {groupedCourses.map((course) => {
   const enrolledSection = enrolledCourses.find(

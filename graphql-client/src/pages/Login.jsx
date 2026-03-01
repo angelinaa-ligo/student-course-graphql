@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useMutation } from '@apollo/client/react';
 import { LOGIN_STUDENT } from '../graphql/mutations';
 import { useNavigate } from 'react-router-dom';
+import "../css/login.css"
 
 export default function Login() {
   const [studentNumber, setStudentNumber] = useState('');

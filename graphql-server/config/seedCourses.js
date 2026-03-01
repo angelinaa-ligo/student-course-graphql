@@ -16,7 +16,14 @@ const baseCourses = [
   // Business
   { courseCode: "BUS100", courseName: "Intro to Business", program: "Business", semester: "Fall" },
   { courseCode: "BUS200", courseName: "Marketing Principles", program: "Business", semester: "Winter" },
-  { courseCode: "BUS300", courseName: "Financial Management", program: "Business", semester: "Fall" }
+  { courseCode: "BUS300", courseName: "Financial Management", program: "Business", semester: "Fall" },
+
+    // Computer Science
+  { courseCode: "CS101", courseName: "Introduction to Computer Science", program: "Computer Science", semester: "Fall" },
+  { courseCode: "CS202", courseName: "Object-Oriented Programming", program: "Computer Science", semester: "Winter" },
+  { courseCode: "CS303", courseName: "Operating Systems", program: "Computer Science", semester: "Fall" },
+  { courseCode: "CS404", courseName: "Computer Networks", program: "Computer Science", semester: "Winter" },
+  { courseCode: "CS505", courseName: "Artificial Intelligence", program: "Computer Science", semester: "Fall" },
 ];
 
 const generateCoursesWithSections = () => {

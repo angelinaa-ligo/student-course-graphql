@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-
+import "../css/dashboard.css"
 export default function Dashboard() {
   const navigate = useNavigate();
   const student = JSON.parse(localStorage.getItem('student'));

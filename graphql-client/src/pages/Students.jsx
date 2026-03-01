@@ -1,7 +1,9 @@
 import { useQuery } from '@apollo/client/react';
 import { GET_ALL_STUDENTS } from '../graphql/queriesGraphql';
+import { useNavigate } from "react-router-dom";
 
 export default function Students() {
+  const navigate = useNavigate();
 
   const { loading, error, data } = useQuery(GET_ALL_STUDENTS);
 
@@ -11,6 +13,9 @@ export default function Students() {
   return (
     <div>
       <h2>All Students</h2>
+      <button onClick={() => navigate('/dashboard')}>
+  ⬅ Back to Dashboard
+</button>
 
       {data.students.map(student => (
         <div key={student.id}>
